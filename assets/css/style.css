@@ -612,47 +612,109 @@ body::before {
 }
 
 /* ==========================================================================
-   9. CONTACT
+   8. CONTACT FORM
    ========================================================================== */
-.contact-list {
+.contact-form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
+  max-width: 560px;
 }
 
-.contact-list li {
+.form-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  align-items: baseline;
-  padding: 0.6rem 0.9rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  transition: border-color 0.25s, box-shadow 0.25s, background 0.2s;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
-.contact-list li:hover {
-  border-color: var(--color-border-glow);
-  background: rgba(168, 85, 247, 0.08);
-  box-shadow: var(--glow-primary);
+.form-group label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-soft);
+  letter-spacing: 0.02em;
 }
 
-.contact-label {
-  min-width: 90px;
-  font-weight: 700;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: var(--fs-base);
   color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.2s;
+  resize: vertical;
 }
 
-.contact-list a {
-  color: var(--color-primary-glow);
-  transition: color 0.2s, text-shadow 0.2s;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(184, 160, 212, 0.55);
 }
 
-.contact-list a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-shadow: 0 0 10px rgba(232, 121, 249, 0.5);
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--color-border-glow);
 }
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+  background: var(--color-surface-2);
+}
+
+.form-submit {
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  cursor: pointer;
+  border: none;
+}
+
+/* ==========================================================================
+   9. CONTACT
+   ========================================================================== */
+   .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  
+  .contact-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    align-items: baseline;
+    padding: 0.6rem 0.9rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.2s;
+  }
+  
+  .contact-list li:hover {
+    border-color: var(--color-border-glow);
+    background: rgba(168, 85, 247, 0.08);
+    box-shadow: var(--glow-primary);
+  }
+  
+  .contact-label {
+    min-width: 90px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  
+  .contact-list a {
+    color: var(--color-primary-glow);
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  
+  .contact-list a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-shadow: 0 0 10px rgba(232, 121, 249, 0.5);
+  }
 
 /* ==========================================================================
    10. FOOTER
