@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard Chuẩn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .dashboard {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .search-box {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background-color: #0056b3; }
+        .weather-info { display: none; }
+        .temp {
+            font-size: 50px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .city { font-size: 24px; font-weight: bold; text-transform: capitalize; }
+        .desc { font-size: 18px; color: #666; margin-bottom: 15px; }
+        .details {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .status { color: #666; font-style: italic; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+    <h2>Dự Báo Thời Tiết</h2>
+    <div class="search-box">
+        <input type="text" id="cityInput" value="Hanoi" placeholder="Nhập tên thành phố...">
+        <button onclick="getWeather()">Xem</button>
+    </div>
+
+    <div id="status" class="status">Đang tải dữ liệu...</div>
+
+    <div id="weatherInfo" class="weather-info">
+        <div class="city" id="cityName">--</div>
+        <div class="desc" id="weatherDesc">--</div>
+        <div class="temp" id="tempText">--°C</div>
+        <div class="details">
+            <div>Độ ẩm: <strong id="humidity">--%</strong></div>
+            <div>Gió: <strong id="wind">-- km/h</strong></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getWeather() {
+        const cityInput = document.getElementById('cityInput');
+        const status = document.getElementById('status');
+        const weatherInfo = document.getElementById('weatherInfo');
+        
+        const city = cityInput.value.trim();
+        if(!city) return;
+
+        status.innerText = "Đang lấy dữ liệu...";
+        status.style.display = "block";
+        weatherInfo.style.display = "none";
+
+        // Định dạng j1 của wttr.in trả về JSON
+        const url = `https://wttr.in{encodeURIComponent(city)}?format=j1`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error();
+            const data = await response.json();
+
+            // SỬA LỖI Ở ĐÂY: Trích xuất phần tử đầu tiên [0] của mảng lồng nhau
+            const current = data.current_condition[0]; 
+
+            document.getElementById('cityName').innerText = city;
+            // Trích xuất tiếp phần tử [0] của mảng miêu tả weatherDesc
+            document.getElementById('weatherDesc').innerText = current.weatherDesc[0].value;
+            document.getElementById('tempText').innerText = current.temp_C + "°C";
+            document.getElementById('humidity').innerText = current.humidity + "%";
+            document.getElementById('wind').innerText = current.windspeedKmph + " km/h";
+
+            status.style.display = "none";
+            weatherInfo.style.display = "block";
+        } catch (error) {
+            status.innerText = "Lỗi: Không tìm thấy thành phố hoặc mất mạng!";
+        }
+    }
+
+    // Chạy mặc định khi load trang
+    window.onload = getWeather;
+    
+    // Nhấn Enter để tìm kiếm
+    document.getElementById('cityInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') getWeather();
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background:
+        radial-gradient(#222 1px, transparent 1px),
+        #080909;
+
+    background-size: 4px 4px;
+
+    color: white;
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 32px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 9px;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    border-bottom: 1px solid #111;
+}
+
+.logo {
+    color: #1680ef;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: -0.3px;
+}
+
+nav {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+}
+
+nav a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 7px;
+    font-weight: 500;
+
+    transition: .2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #1680ef;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    width: 100%;
+    min-height: 398px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 30px 7px 25px 7px;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.left {
+    position: relative;
+
+    width: 52%;
+    height: 350px;
+}
+
+.avatar {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 270px;
+    height: 270px;
+
+    border-radius: 50%;
+
+    padding: 8px;
+
+    background: #0e65bd;
+
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    filter: contrast(1.05);
+}
+
+
+/* Blue information circle */
+
+.profile-card {
+    position: absolute;
+
+    width: 185px;
+    height: 185px;
+
+    left: 188px;
+    top: 136px;
+
+    border-radius: 50%;
+
+    background: #086de1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 29px 22px 15px;
+
+    box-shadow: 0 0 0 1px rgba(255,255,255,.03);
+}
+
+.profile-card h3 {
+    color: white;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    margin-bottom: 11px;
+}
+
+.profile-card p {
+    color: #b9dcff;
+
+    font-size: 8px;
+    line-height: 1.55;
+
+    margin-bottom: 12px;
+}
+
+.profile-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 22px;
+    min-width: 71px;
+
+    background: white;
+    color: #1673d8;
+
+    border-radius: 2px;
+
+    text-decoration: none;
+
+    font-size: 7px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.intro {
+    width: 48%;
+
+    padding-left: 15px;
+
+    margin-top: -4px;
+}
+
+.intro h2 {
+    font-size: 28px;
+    font-weight: 600;
+
+    color: #f2f2f2;
+
+    margin-bottom: 7px;
+}
+
+.intro h1 {
+    color: #0879ed;
+
+    font-size: 51px;
+    line-height: .95;
+
+    font-weight: 600;
+
+    letter-spacing: -2px;
+}
+
+.job {
+    margin-top: 17px;
+
+    color: #f5f5f5;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: 17px;
+
+    white-space: nowrap;
+}
+
+.line {
+    width: 122px;
+    height: 3px;
+
+    background: #555;
+
+    margin-top: 12px;
+    margin-left: 132px;
+}
+
+.description {
+    width: 270px;
+
+    color: #777;
+
+    font-size: 9px;
+    line-height: 1.65;
+
+    text-align: right;
+
+    margin-top: 17px;
+    margin-left: 0;
+}
+
+.social {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+    width: 270px;
+}
+
+.social a {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0879ed;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition: .2s;
+}
+
+.social a:hover {
+    background: white;
+    color: #0879ed;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 10px;
+
+    background: rgba(0, 0, 0, .75);
+
+    color: #ddd;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    letter-spacing: -1px;
+}
+
+footer b {
+    color: #aaa;
+
+    font-size: 25px;
+
+    margin: 0 3px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .header {
+        height: 50px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 6px;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding-top: 35px;
+    }
+
+    .left {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .intro {
+        width: 100%;
+        max-width: 500px;
+
+        padding: 20px 20px 40px;
+    }
+
+    .intro h1 {
+        font-size: 45px;
+    }
+
+    .description,
+    .social {
+        width: 100%;
+    }
+
+    .line {
+        margin-left: auto;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    nav a:nth-child(n+4) {
+        display: none;
+    }
+
+    .avatar {
+        width: 230px;
+        height: 230px;
+    }
+
+    .profile-card {
+        left: 145px;
+        top: 120px;
+
+        width: 170px;
+        height: 170px;
+    }
+
+    .intro h2 {
+        font-size: 23px;
+    }
+
+    .intro h1 {
+        font-size: 40px;
+    }
+
+    .job {
+        font-size: 14px;
+    }
+}
