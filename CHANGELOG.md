@@ -1,4 +1,4 @@
-## v0.1.0 – 2026-10-27
+0## v0.1.0 – 2026-10-27
 
 ### Chức năng mới
 - Trang portfolio giới thiệu cá nhân, kỹ năng, dự án và thông tin liên hệ.
